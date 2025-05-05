@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit Task</title></head>
+<body>
+    <h2>Edit Task</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.title.label }} {{ form.title(size=40) }}<br>
+        {{ form.description.label }}<br>
+        {{ form.description(cols=40, rows=4) }}<br>
+        {{ form.submit() }}
+    </form>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>
