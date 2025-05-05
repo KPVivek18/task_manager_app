@@ -14,11 +14,10 @@ def upload_file_to_s3(file_object, filename):
     unique_filename = f"{uuid.uuid4()}_{filename}"
 
     s3.upload_fileobj(
-    Fileobj=file_object,
-    Bucket=bucket,
-    Key=unique_filename
-)
-
+        fileobj=file_object,  # ✅ corrected lowercase
+        Bucket=bucket,
+        Key=unique_filename
+    )
 
     file_url = f"https://{bucket}.s3.{current_app.config['AWS_REGION']}.amazonaws.com/{unique_filename}"
     return file_url
